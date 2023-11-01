@@ -1,11 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse
+from django.views import generic
 from .models import Exam
 
 
-def exam_list(request: HttpRequest) -> HttpResponse:
-    return render(
-        request=request,
-        template_name='exam/exam-list.html',
-        context={'all_exams': Exam.objects.all()}
-    )
+class ExamsListView(generic.ListView):
+    model = Exam
+    context_object_name = 'exams'
+    template_name = 'exam/exam-list.html'
+
+
+class ExamsDetailView(generic.DetailView):
+    model = Exam
+    context_object_name = 'exam-detail'
+    template_name = 'exam/exam-list.html'

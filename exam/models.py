@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Exam(models.Model):
@@ -15,6 +16,13 @@ class Exam(models.Model):
         ordering = ['title', ]
         verbose_name = 'Quiz'
         verbose_name_plural = 'Quizes'
+
+    # working
+    # def get_absolute_url(self):
+    #     return "%i/" % self.id
+
+    def get_absolute_url(self):
+        return reverse("exam-detail", kwargs={"pk": self.pk})
 
 
 class Question(models.Model):

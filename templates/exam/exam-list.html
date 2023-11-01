@@ -7,11 +7,12 @@
 </head>
 <body>
 
-    <ul>
-        {% for exam in all_exams %}
-            <li>{{ exam }}</li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for exam in exams %}
+        <li><a href="{{ exam.get_absolute_url }}">{{ exam }}</a></li>
+
+    {% endfor %}
+</ul>
 
 </body>
 </html>
