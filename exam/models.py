@@ -18,11 +18,11 @@ class Exam(models.Model):
         verbose_name_plural = 'Quizes'
 
     # working
-    # def get_absolute_url(self):
-    #     return "%i/" % self.id
-
     def get_absolute_url(self):
-        return reverse("exam-detail", kwargs={"pk": self.pk})
+        return "%i/" % self.id
+
+    # def get_absolute_url(self):
+    #     return reverse( 'exams', kwargs={"pk": self.pk})
 
 
 class Question(models.Model):
@@ -36,6 +36,9 @@ class Question(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+    def get_absolute_url(self):
+        return "%i/" % self.id
 
 
 class Answer(models.Model):

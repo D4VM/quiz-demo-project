@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam List</title>
+    <title>Question List</title>
 </head>
 <body>
 
 <ul>
-    {% for exam in exam_list %}
-        <li><a href="{{ exam.get_absolute_url }}">{{ exam }}</a></li>
+    {% for question in question_list %}
+        <li><a href="{{ question.get_absolute_url }}">{{ question }}</a></li>
 
     {% endfor %}
 </ul>
